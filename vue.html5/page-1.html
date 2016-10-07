@@ -40,7 +40,7 @@
 				$("div.menu_point").hide();
 				
 				// la fonction suivante s'exécutera lors d'un clic sur un paragraphe <p> de classe "menu_chapitre"
-				$("p.menu_chapitre").click(function(){
+				$("p.menu_chapitre").hover(function(){
 					// this représente le paragraphe cliqué, on relectionne donc la prochaine div de "menu_point" et on la fait apparaître
 					$(this).next("div.menu_point").slideDown(300);
 					
