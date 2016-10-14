@@ -35,7 +35,43 @@
 	
 	<script> 
 	
-	$²l;
+	$(document).ready(initialisations);
+	
+	function initialisations() {
+		
+		xOffset = -1;
+		yOffset = -7;
+		
+		$("a.lien").mouseenter(entreeSourisSurLien);
+		
+		$("a.lien").mouseleave(sortieSourisDuLien);
+		
+		$("a.lien").mousemove(deplacementSouris);
+		
+	};
+	
+	function entreeSourisSurLien(e) {
+		this.texte = this.title;
+		this.title = "";
+		
+		$("body").append("<p id='infobulle'>" + this.texte + "</p>");
+		
+		$("#infobulle").css("top",(e.pageY - yOffset) + "px");
+		$("#infobulle").css("left",(e.pageX - xOffset) + "px");
+		$("#infobulle").fadeIn("fast");
+	};
+	
+	function sortieSourisDuLien() {
+		
+		this.title = this.texte;
+		
+		$("#infobulle").remove();
+	}
+	
+	function deplacementSouris(e) {
+		$("#infobulle").css("top",(e.pageY - yOffset) + "px"); 
+		$("#infobulle").css("left",(e.pageX - xOffset) + "px");
+	}
 	
 	
 	
